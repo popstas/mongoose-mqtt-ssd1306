@@ -18,7 +18,7 @@ filesystem:
 
 config_schema:
   - ["app", "o", "", {"title": "Button settings"}]
-  - ["app.mqtt_topic", "s", "status/pomodoro/mmss", {"title": "MQTT subscribe topic"}]
+  - ["app.mqtt_topic", "s", "status/tablo", {"title": "MQTT subscribe topic"}]
   - ["app.text_size", "i", 4, {"title": "Font size"}]
   - ["i2c.enable", true]
   - ["i2c.debug", true]
@@ -33,6 +33,8 @@ libs:
   - origin: https://github.com/mongoose-os-libs/arduino-adafruit-ssd1306
   - origin: https://github.com/mongoose-os-libs/boards
   - origin: https://github.com/mongoose-os-libs/i2c
+  # - origin: https://github.com/mongoose-os-libs/rpc-service-i2c # I2C.Scan()
+  # - origin: https://github.com/mongoose-os-libs/pcf857x-i2c # lcd 16x2
   - origin: https://github.com/mongoose-os-libs/mjs
   - origin: https://github.com/mongoose-os-libs/mqtt
   # - origin: https://github.com/mongoose-os-libs/ota-http-client
