@@ -6,6 +6,20 @@ Using for pomodoro timer with Node-Red.
 
 Video (Russian) - https://youtu.be/du_pAQib9QU
 
+- `status/tablo` - send text (max 5 symbols)
+- `status/tablo/json` - send json
+
+``` json
+{"msg":"line 1\nline 2","msgSize":2}
+```
+
+#### msgSize
+- `1` - 8 lines
+- `2` - 4 lines
+- `3` - 3 lines
+- `4` - 2 lines
+- `5` - 1 line
+
 ## Quick start
 
 ```
