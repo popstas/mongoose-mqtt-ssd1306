@@ -20,7 +20,8 @@ let showStr = function(d, str) {
   d.display();
 };
 
-let showStrDetail = function(d, jsonRaw) {
+// example: {msg: 'line1\nline2', textSize: 2}
+let showStrDetailOld = function(d, jsonRaw) {
   let obj = JSON.parse(jsonRaw);
   let str = obj.msg;
 
@@ -31,6 +32,23 @@ let showStrDetail = function(d, jsonRaw) {
   d.setTextColor(Adafruit_SSD1306.WHITE);
   d.setCursor(0, 0);
   d.write(str);
+  d.display();
+};
+
+// example: "[{"pos":[0,0],"text":"tgl:  8:38\nel:  16:52\npf:      1\n","size":2},{"pos":[0,48],"text":"usd: 75.20 fxgd:  927\nbrk: 18.65 iis: 33.44","size":1}]"
+let showStrDetail = function(d, jsonRaw) {
+  let objs = JSON.parse(jsonRaw);
+
+  d.clearDisplay();
+  d.setTextColor(Adafruit_SSD1306.WHITE);
+
+  for (let i = 0; i < objs.length; i++) {
+    let obj = objs[i];
+    d.setTextSize(obj.size);
+    d.setCursor(obj.pos[0], obj.pos[1]);
+    d.write(obj.text);
+  }
+
   d.display();
 };
 
